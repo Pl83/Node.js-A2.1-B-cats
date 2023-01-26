@@ -1542,7 +1542,7 @@ tmtags
 *.bak
 *.cmp
 *.jpg
-*.html
+
 *.bsf
 
 # ignore simulation output of ModelSim
