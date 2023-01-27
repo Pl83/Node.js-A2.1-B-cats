@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-const express = require('express');
-=======
 const express = require('express');
 const cors= require('cors');
 const http = require('http');
@@ -19,4 +16,3 @@ const io = socketio(serverhttp , {
         origin: '*',
     }
 });
->>>>>>> main
