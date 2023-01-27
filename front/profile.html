@@ -3,8 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="profile.html">Profile</a>
+            </li>
+            <li>
+                <a href="comparaison.html">Comparaison</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div>
+    <h1>Profile</h1>
 
+        <img src="https://media.licdn.com/dms/image/C4D03AQF0MTeF4RNILw/profile-displayphoto-shrink_400_400/0/1646063686487?e=1680134400&v=beta&t=-Rmru3T5WSqgdyNEWWhbzOWw9-hJ8wXvdlljt7-v7vM">
+        <br>
+        <button onclick="seeform(1)">Modifier</button>
+        <form method="post" id="pokemon">
+            <input type="text" name="changepoke" id="Nimg">
+            <input type="submit" name="submit" id="1" onclick="sendform(1)">
+        </form>
+            <div>
+
+        <h3>Mon nom</h3>
+                <button onclick="seeform(2)">Modifier</button>
+            </div>
+        <form method="post" id="nom">
+            <input type="text" name="changenom" id="Nnom">
+            <input type="submit" name="submit" id="2" onclick="sendform(2)">
+        </form>
+        <br>
+            <div>
+
+        <h3> Mon prenom</h3>
+            <button onclick="seeform(3)">Modifier</button>
+
+        </div>
+        <form method="post" id="prenom">
+            <input type="text" name="changeprenom" id="Nprenom">
+            <input type="submit" name="submit" id="3" onclick="sendform(3)">
+        </form>
+    </div>
+    <div>
+
+    </div>
+
+</main>
+<footer></footer>
+<script src="script.js"></script>
 </body>
 </html>
