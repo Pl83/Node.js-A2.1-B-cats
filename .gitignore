@@ -537,13 +537,7 @@ translations/*.qm
 .settings/
 
 ### Images template
-# JPEG
-*.jpg
-*.jpeg
-*.jpe
-*.jif
-*.jfif
-*.jfi
+
 
 # JPEG 2000
 *.jp2
@@ -568,10 +562,10 @@ translations/*.qm
 *.webp
 
 # Portable Network Graphics
-*.png
+
 
 # Animated Portable Network Graphics
-*.apng
+
 
 # Multiple-image Network Graphics
 *.mng
@@ -581,7 +575,7 @@ translations/*.qm
 *.tif
 
 # Scalable Vector Graphics
-*.svg
+
 *.svgz
 
 # Portable Document Format
@@ -657,7 +651,7 @@ octave-workspace
 # *.wmf
 # *.emf
 # *.pdf
-# *.png
+
 # *.tif
 
 ### AL template
@@ -1239,7 +1233,7 @@ FodyWeavers.xsd
 rerun/
 reports/
 screenshots/
-screenshot*.png
+
 test-servers/
 
 # bundler
@@ -1541,8 +1535,6 @@ tmtags
 *.psm
 *.bak
 *.cmp
-*.jpg
-
 *.bsf
 
 # ignore simulation output of ModelSim
