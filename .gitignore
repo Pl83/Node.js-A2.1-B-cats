@@ -538,7 +538,7 @@ translations/*.qm
 
 ### Images template
 # JPEG
-*.jpg
+
 *.jpeg
 *.jpe
 *.jif
@@ -568,7 +568,7 @@ translations/*.qm
 *.webp
 
 # Portable Network Graphics
-*.png
+
 
 # Animated Portable Network Graphics
 *.apng
@@ -581,7 +581,7 @@ translations/*.qm
 *.tif
 
 # Scalable Vector Graphics
-*.svg
+
 *.svgz
 
 # Portable Document Format
