@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f2f2f2;
+}
+
+header {
+  background-color: #fff;
+  height: 10vh;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+header nav {
+  width: 100%;
+}
+header nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+header nav ul li {
+  list-style: none;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+main {
+  display: flex;
+}
+main div:nth-of-type(1) {
+  text-align: center;
+  width: 100%;
+  text-align: center;
+}
+main div:nth-of-type(1) div {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+main div:nth-of-type(1) form {
+  display: none;
+}
+main div:nth-of-type(1) .activeform {
+  display: block;
+}
+main div:nth-of-type(2) {
+  width: 100%;
+}
+
+/*# sourceMappingURL=profile.css.map */
