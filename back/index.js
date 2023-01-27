@@ -10,7 +10,8 @@ const serverhttp = http.createServer(app);
 const io = socketio(serverhttp);
 serverhttp.use(express.json());
 serverhttp.use(cors());
-serverhttp.use(http())
+serverhttp.use(http());
+
 const io = socketio(serverhttp , {
     cors: {
         origin: '*',

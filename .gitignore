@@ -536,6 +536,67 @@ translations/*.qm
 # IDE settings
 .settings/
 
+<<<<<<< HEAD
+=======
+### Images template
+
+
+# JPEG 2000
+*.jp2
+*.j2k
+*.jpf
+*.jpx
+*.jpm
+*.mj2
+
+# JPEG XR
+*.jxr
+*.hdp
+*.wdp
+
+# Graphics Interchange Format
+*.gif
+
+# RAW
+*.raw
+
+# Web P
+*.webp
+
+# Portable Network Graphics
+
+
+# Animated Portable Network Graphics
+
+
+# Multiple-image Network Graphics
+*.mng
+
+# Tagged Image File Format
+*.tiff
+*.tif
+
+# Scalable Vector Graphics
+
+*.svgz
+
+# Portable Document Format
+*.pdf
+
+# X BitMap
+*.xbm
+
+# BMP
+*.bmp
+*.dib
+
+# ICO
+*.ico
+
+# 3D Images
+*.3dm
+*.max
+>>>>>>> 4b0846a1f833795cc3966968f76f2446559caeaa
 
 ### Octave template
 # Windows default autosave extension
@@ -593,7 +654,7 @@ octave-workspace
 # *.wmf
 # *.emf
 # *.pdf
-# *.png
+
 # *.tif
 
 ### AL template
@@ -1175,7 +1236,7 @@ FodyWeavers.xsd
 rerun/
 reports/
 screenshots/
-screenshot*.png
+
 test-servers/
 
 # bundler
