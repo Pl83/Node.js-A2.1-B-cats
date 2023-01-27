@@ -537,13 +537,7 @@ translations/*.qm
 .settings/
 
 ### Images template
-# JPEG
 
-*.jpeg
-*.jpe
-*.jif
-*.jfif
-*.jfi
 
 # JPEG 2000
 *.jp2
