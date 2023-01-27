@@ -565,7 +565,7 @@ translations/*.qm
 
 
 # Animated Portable Network Graphics
-*.apng
+
 
 # Multiple-image Network Graphics
 *.mng
@@ -651,7 +651,7 @@ octave-workspace
 # *.wmf
 # *.emf
 # *.pdf
-# *.png
+
 # *.tif
 
 ### AL template
@@ -1233,7 +1233,7 @@ FodyWeavers.xsd
 rerun/
 reports/
 screenshots/
-screenshot*.png
+
 test-servers/
 
 # bundler
