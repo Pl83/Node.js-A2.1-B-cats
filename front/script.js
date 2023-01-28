@@ -107,7 +107,7 @@ function sendform(id) {
         localStorage.setItem("nom", nom);
     }
     else if (id == 3) {
-       const prenom = document.getElementById("Nprenom").value;
+        const prenom = document.getElementById("Nprenom").value;
         localStorage.setItem("prenom", prenom);
     }
 }
@@ -141,9 +141,4 @@ Pimg.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pok
 
 
 
-<<<<<<< HEAD
 //NODE
-=======
-
-//NODE
->>>>>>> 410474efd66def3d0cbea79c016eb1517f30fa49
