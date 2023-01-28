@@ -34,9 +34,8 @@ let Pimg = document.getElementById("Pimg");
 
 Pprenom.innerHTML = localStorage.getItem("prenom");
 Pnom.innerHTML = localStorage.getItem("nom");
+
 Pimg.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + localStorage.getItem("pokemon") + ".png";
-
-
 
 
 
