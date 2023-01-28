@@ -10,12 +10,12 @@ function seeform(id) {
         prenom.classList.add("activeform")
     }
     else if (id == 1) {
-       pokemon.classList.add("activeform")
+        pokemon.classList.add("activeform")
     }
 }
 function sendform(id) {
     if (id == 1) {
-        const pokemon = document.getElementById("Npokemon").value;
+        const pokemon = document.getElementById("Nimg").value;
         localStorage.setItem("pokemon", pokemon);
     }
     else if (id == 2) {
@@ -23,10 +23,19 @@ function sendform(id) {
         localStorage.setItem("nom", nom);
     }
     else if (id == 3) {
-       const prenom = document.getElementById("Nprenom").value;
+        const prenom = document.getElementById("Nprenom").value;
         localStorage.setItem("prenom", prenom);
     }
 }
+
+let Pprenom = document.getElementById("Pprenom");
+let Pnom = document.getElementById("Pnom");
+let Pimg = document.getElementById("Pimg");
+
+Pprenom.innerHTML = localStorage.getItem("prenom");
+Pnom.innerHTML = localStorage.getItem("nom");
+Pimg.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + localStorage.getItem("pokemon") + ".png";
+
 
 
 
