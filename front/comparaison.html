@@ -2,25 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>comparaison</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="profile.html">Profile</a>
-            </li>
-            <li>
-                <a href="comparaison.html">Comparaison</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main></main>
-<footer></footer>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="profile.html">Profile</a>
+                </li>
+                <li>
+                    <a href="comparaison.html">Comparaison</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="BatleArea">
+        <section id="myteam">
+            <h1>My team</h1>
+            <div class="myteams">
+                <div class="myteam"></div>
+                <div class="myteam"></div>
+                <div class="myteam"></div>
+                <div class="myteam"></div>
+                <div class="myteam"></div>
+                <div class="myteam"></div>
+            </div>
+        </section>
+        <section id="figth">
+            <button id="fitghbtn" onclick="compare()">Figth</button>
+            <div class="placeolder ninja">
+                <div>
+                    <h1 id="myteamStat"></h1>
+                </div>
+                <br>
+                <p>VS</p>
+                <br>
+                <div>
+                    <h1 id="yourteamStat"></h1>
+                </div>
+            </div>
+        </section>
+        <section id="yourteam">
+            <h1>Ennemie team</h1>
+            <div class="yourteams">
+                <div class="yourteam"></div>
+                <div class="yourteam"></div>
+                <div class="yourteam"></div>
+                <div class="yourteam"></div>
+                <div class="yourteam"></div>
+                <div class="yourteam"></div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="script/comparaison.js"></script>
 </body>
 </html>

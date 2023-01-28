@@ -5,12 +5,12 @@ if (localStorage.getItem("pokemon") == null) {
 
 function getPokemon() {
   let mypoke = localStorage.getItem("pokemon");
-  console.log(typeof mypoke);
+  //console.log(typeof mypoke);
   let numbers = mypoke.match(/\d+/g);
   if(numbers) {
       let numbersString = numbers.join(',');
       let numbersArray = numbersString.split(',');
-      console.log(numbersArray);
+      //console.log(numbersArray);
 
       for (let i = 0; i < numbersArray.length; i++) {
         let imgcontainer = document.querySelector('.solo');
@@ -26,7 +26,6 @@ function getPokemon() {
   }
 
 }
-
 getPokemon();
 
 function getValue() {
