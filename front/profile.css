@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 100px;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
