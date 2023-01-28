@@ -1,7 +1,7 @@
 body {
   margin: 0;
   color: #ffffff;
-  background: #595858;
+  background: #ffffff;
   font-family: 'Montserrat', monospace;
   font-weight: bold;
 }
@@ -39,8 +39,8 @@ a {
   max-width: 525px;
   min-height: 670px;
   position: relative;
-  box-shadow: 0 12px 15px 0 rgb(147, 143, 144), 0 17px 50px 0 rgba(0, 0, 0, .19);
   .logo{
+    position: relative;
     background: #938f90;
     display: flex;
     justify-content: center;
@@ -117,6 +117,13 @@ a {
   width: 100%;
   color: #fff;
   display: block;
+
+  &::placeholder{
+    color: whitesmoke;
+  }
+
+
+
 }
 
 .button {
@@ -138,9 +145,7 @@ a {
   font-size: 12px;
 }
 
-.login-form .group .button {
-  border-color: #FF0000FF;
-}
+
 
 .login-form .group .check:checked+label {
   color: #fff;
