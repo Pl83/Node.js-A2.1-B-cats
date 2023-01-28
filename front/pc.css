@@ -1,0 +1,87 @@
+.PcGlobal{
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: 30%;
+  grid-template-rows: 40% 40% 20%; 
+}
+
+.PcMain{
+  background-color: aquamarine;
+  grid-column: 2/3;
+  grid-row: 1/3;
+}
+
+.PcAsside{
+  grid-column: 1/2;
+  grid-row: 1/3;
+  height: 100%;
+}
+
+.PcAssideOne{
+  background-color: #a00000;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 50%;
+}
+
+.PcAssideTwo{
+  background-color: #002cf1;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  height: 50%;
+}
+
+.PcFooter{
+  background-color: #b200b8;
+  grid-column: 1/3;
+  grid-row: 3/4;
+}
+
+.imgsearchpoke{
+  width: 100%;
+  height: 100%;
+}
+
+.imgsearchpoke > img{
+  width: auto;
+  height: 100%;
+}
+
+.teams{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.team{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 30%;
+  height: 30%;
+  background-color: #b200b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ninja{
+  display: none;
+}
+
+.styling{
+  width: 70%;
+  height: 70%;
+  background-color: #a00000;
+}
+
+.styling > img{
+  width: auto;
+  height: 100%;
+}
