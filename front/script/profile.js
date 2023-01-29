@@ -32,6 +32,10 @@ let Pimg = document.getElementById("Pimg");
 
 Pprenom.innerHTML = localStorage.getItem("prenom");
 
+fetch('https://pokeapi.co/api/v2/pokemon/' + localStorage.getItem("favpokemon"))
+    .then(response => response.json())
+    .then(data => {
+        Pimg.src= `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`
 
-Pimg.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + localStorage.getItem("favpokemon") + ".png";
+    })
 

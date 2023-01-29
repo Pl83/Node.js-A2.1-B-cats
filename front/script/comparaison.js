@@ -1,3 +1,4 @@
+
 var MyPower = 0;
 var YourPower = 0;
 
@@ -115,3 +116,4 @@ function compare() {
   });
   
 }
+
