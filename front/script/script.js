@@ -2,7 +2,6 @@ var ActuPoke = 0;
 if (localStorage.getItem("pokemon") == null) {
   localStorage.setItem("pokemon", []);
 }
-localStorage.setItem("pseudo", "zorgos");
 
 function getPokemon() {
   let mypoke = localStorage.getItem("pokemon");
@@ -95,7 +94,7 @@ socket.on("Sendfront", (data) => {
   console.log('rizzeds');
   console.log(data);
   let li = document.createElement("li");
-  li.innerHTML = data;
+  li.innerHTML = '<p>'+data+'</p>';
   showmessagedata.appendChild(li)
 });
 
