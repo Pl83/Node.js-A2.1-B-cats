@@ -69,7 +69,17 @@ app.get('/logout/', (req, res) => {
 app.delete('/delete/', (req, res) => {
     console.log("suppresion de compte");
 
+    client.connect(err => {
+        const collection = client.db("test").collection("devices");
+        const connectedUserId = req.session.userId;
+        collection.deleteOne({ _id: connectedUserId }, function(err, res) {
+            console.log("Connected user's document deleted");
+            client.close();
+        });
+    });
+
 });
+
 httpServer.listen(port, () => {
   console.log(`On écoute le port n°${port}`)
 });
