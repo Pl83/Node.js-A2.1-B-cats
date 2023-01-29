@@ -8,6 +8,19 @@ var ActuPoke = 0;
 if (localStorage.getItem("pokemon") == null) {
   localStorage.setItem("pokemon", []);
 }
+if (localStorage.getItem("history") == null) {
+  localStorage.setItem("history", '');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ps = document.querySelector(".pokemon-search");
+  if (ps !== null && ps.innerHTML !== "") {
+    ps.innerHTML = "";
+  }
+});
+
+const cleared = localStorage.getItem("pokemon").replace(/\\/g, "");
+localStorage.setItem("pokemon", cleared);
 
 function getPokemon() {
   let mypoke = localStorage.getItem("pokemon");
@@ -36,7 +49,7 @@ getPokemon();
 
 function getValue() {
   let value = document.querySelector('#pokemon-search').value;
-  console.log(value);
+  //console.log(value);
       fetch('https://pokeapi.co/api/v2/pokemon/' + value)
         .then(response => response.json())
           .then(data => {
@@ -74,13 +87,13 @@ function DeletePokemon(tae){
   tae.previousElementSibling.classList.remove(ActuPoke);
   tae.classList.remove(ActuPoke);
   mypoke = localStorage.getItem("pokemon");
-  console.log(mypoke);
+  //console.log(mypoke);
   mypoke = mypoke.split(',');
-  console.log(mypoke);
+  //console.log(mypoke);
   mypoke.splice(mypoke.indexOf(ActuPoke), 1);
-  console.log(mypoke);
+  //console.log(mypoke);
   mypoke = mypoke.join(',');
-  console.log(mypoke);
+  //console.log(mypoke);
   localStorage.setItem("pokemon", JSON.stringify(mypoke));
 }
 
@@ -92,20 +105,86 @@ console.log(showmessagedata);
 let btnsock = document.querySelector(".btnsock");
 btnsock.addEventListener("click", function() {
   let contentmessage = document.querySelector("#contentmessage").value;
-  let data = [localStorage.getItem("pseudo"), contentmessage]
-  socket.emit("message", data);
+  socket.emit(contentmessage);
+
+  let pseudo = localStorage.getItem("pseudo");
+  let history = localStorage.getItem("history");
+  history = history.split(',');
+  //console.log(history);
+  history.push(pseudo + ' a dit : ' + contentmessage);
+  history = history.join(',');
+  localStorage.setItem("history", history);
+  //console.log(history);
+  
+  //socket.emit("message", pseudo + ' dit :' + contentmessage);
+  socket.emit("message", history);
+});
+
+let history = localStorage.getItem("history");
+  history = history.split(',');
+  console.log(history);
+  for (let i = 0; i < history.length; i++) {
+    let li = document.createElement("li");
+    li.innerHTML = '<p>'+history[i]+'</p>' + '<br>';
+    showmessagedata.appendChild(li)
+  }
+
+let iolisten = document.querySelectorAll(".iolisten");
+
+iolisten.forEach(function(btn) {
+btn.addEventListener("click", function() {
+let pokemon = localStorage.getItem("pokemon");
+socket.emit("pokemonData", pokemon);
+});
+
 });
 
 
 socket.on("Sendfront", (data) => {
-  console.log('rizzeds');
-  console.log(data);
-  let pseudo = localStorage.getItem("pseudo");
-  let li = document.createElement("li");
-  li.innerHTML = '<h3>'+ data[0] +'</h3> <p>'+ data[1] +'</p>';
-  showmessagedata.appendChild(li)
+
+
+  localStorage.setItem("history", data);
+  let history = localStorage.getItem("history");
+  history = history.split(',');
+  console.log(history);
+  showmessagedata.innerHTML = '';
+  for (let i = 0; i < history.length; i++) {
+    let li = document.createElement("li");
+    li.innerHTML = '<p>'+history[i]+'</p>' + '<br>';
+    showmessagedata.appendChild(li)
+  }
 });
 
+socket.on("pokemonData", (data) => {
 
+  localStorage.setItem("pokemon", JSON.stringify(data));
+});
+
+const main = document.querySelector("main");
+const boxarea = document.querySelector(".boxarea");
+let x = 0;
+let y = 0;
+
+while (y < main.clientHeight) {
+  let nb = Math.floor(Math.random() * 898) + 1;
+  const div = document.createElement("div");
+  div.style.width = "50px";
+  div.style.height = "50px";
+
+  div.style.position = "absolute";
+  div.style.left = `${x}px`;
+  div.style.top = `${y}px`;
+  div.classList.add("boxpoke");
+
+  div.classList.add("27");
+  div.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${nb}.png">`;
+  boxarea.appendChild(div);
+
+  x += 65; // 50px (width) + 15px (gap)
+  if (x + 50 > main.clientWidth) {
+    x = 0;
+    y += 65;
+  }
+}
 
 //NODE

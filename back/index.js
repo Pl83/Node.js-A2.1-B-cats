@@ -28,6 +28,10 @@ io.on("connection", (socket) => {
     console.log(data);
     io.emit("Sendfront", data)
   })
+  socket.on("pokemonData", function(data) {
+    console.log("Received pokemon data:", data);
+    io.emit("pokemonData", data);
+    });
 })
 
 app.post('/login/', (req, res) => {
