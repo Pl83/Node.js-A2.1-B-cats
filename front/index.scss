@@ -5,6 +5,20 @@
   font-family: 'Press Start 2P';
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 100px;
+}
+
+.user::-webkit-scrollbar {
+  width: 10px;
+}
+
+
 
 
 .contenaire{
