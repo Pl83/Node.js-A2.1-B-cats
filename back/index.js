@@ -46,14 +46,15 @@ app.post('/login/', (req, res) => {
 });
 app.post('/register/', (req, res) => {
 
-    const username = req.body.username;
-    const pokefav = req.body.pokefav;
-    const password = req.body.password;
+    const username = req.body.user;
+    const pokefa = req.body.pokefavs;
+    const password = req.body.passwords;
+    console.log(pokefa);
 
 
     client.connect(err => {
         const collection = client.db("user").collection("profile");
-        collection.insertOne({ username: username, pokefav: pokefav, password: password }, function(err, res) {
+        collection.insertOne({ username: username, pokefav: pokefa, password: password }, function(err, res) {
             console.log("User created");
             client.close();
         });
