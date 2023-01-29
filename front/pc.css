@@ -99,10 +99,7 @@ header nav ul li a {
   justify-content: center;
 }
 
-.imgsearchpoke > img{
-  width: 60%;
-  height: 250px;
-}
+
 
 .teams{
   display: flex;
