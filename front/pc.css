@@ -7,9 +7,13 @@
 }
 
 .PcMain{
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
+  background-image: url(img/box.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   grid-column: 2/3;
   grid-row: 1/3;
+  border: 2px solid black;
 }
 
 .PcAsside{
@@ -19,23 +23,36 @@
 }
 
 .PcAssideOne{
-  background-color: #a00000;
+  /*background-color: #a00000;*/
+  background-image: url(img/grass.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   grid-column: 1/2;
   grid-row: 1/2;
   height: 50%;
+  color: aliceblue;
+  border: 2px solid black;
 }
 
 .PcAssideTwo{
-  background-color: #002cf1;
+  /*background-color: #002cf1;*/
+  background-image: url(img/arena.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   grid-column: 1/2;
   grid-row: 2/3;
   height: 50%;
+  border: 2px solid black;
 }
 
 .PcFooter{
-  background-color: #b200b8;
+  /*background-color: #b200b8;*/
+  background-image: url(img/chta.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   grid-column: 1/3;
   grid-row: 3/4;
+  border: 2px solid black;
 }
 
 .imgsearchpoke{

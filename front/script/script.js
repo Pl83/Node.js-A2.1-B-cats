@@ -120,18 +120,6 @@ Pnom.innerHTML = localStorage.getItem("nom");
 Pimg.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + localStorage.getItem("pokemon") + ".png";
 
 
-// let ia = document.getElementById("ia");
-// let ib = document.getElementById("ib");
-// let ic = document.getElementById("ic");
-
-// let im1 = document.querySelector(".im1");
-// let im2 = document.querySelector(".im2");
-// let im3 = document.querySelector(".im3");
-
-// im1.addEventListener("mouse", function () {
-
-
-
 
 
 
