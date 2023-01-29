@@ -52,7 +52,7 @@ header nav ul li a {
 .PcGlobal{
   display: grid;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   grid-template-columns: 30%;
   grid-template-rows: 40% 40% 20%;
 
@@ -66,12 +66,12 @@ header nav ul li a {
   grid-column: 2/3;
   grid-row: 1/3;
   border: 2px solid black;
+
 }
 
 .PcAsside{
   grid-column: 1/2;
   grid-row: 1/3;
-  height: 100%;
 }
 
 .PcAssideOne{
@@ -100,13 +100,21 @@ header nav ul li a {
 
 .PcFooter{
   /*background-color: #b200b8;*/
+
+  height: 50vh;
+  width: 100%;
   background-image: url(img/chta.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   grid-column: 1/3;
   grid-row: 3/4;
   border: 2px solid black;
+
 }
+.PcFooter div input {
+  width: 20%;
+}
+
 
 .imgsearchpoke{
   width: 100%;
@@ -171,4 +179,17 @@ input{
   border-radius: 5px;
   padding: 0 10px;
   margin: 10px 0;
+}
+.showmessagedata{
+  height: 38vh;
+  overflow-y: scroll;
+  width: 20%;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+.showmessagedata li{
+  display: flex;
+  font-size: 120%;
+  flex-direction: column;
+
 }
