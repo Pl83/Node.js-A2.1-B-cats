@@ -2,11 +2,11 @@ if(localStorage.getItem("pseudo") == null || localStorage.getItem("pseudo") == "
 document.location.href = "login.html";
 
 }
-
+const SesionPseudo = localStorage.getItem("pseudo");
 
 var ActuPoke = 0;
-if (localStorage.getItem("pokemon") == null) {
-  localStorage.setItem("pokemon", []);
+if (localStorage.getItem("pokemon"+ SesionPseudo) == null) {
+  localStorage.setItem("pokemon" +SesionPseudo, []);
 }
 if (localStorage.getItem("history") == null) {
   localStorage.setItem("history", '');
@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-const cleared = localStorage.getItem("pokemon").replace(/\\/g, "");
-localStorage.setItem("pokemon", cleared);
+const cleared = localStorage.getItem("pokemon"+SesionPseudo).replace(/\\/g, "");
+localStorage.setItem("pokemon"+SesionPseudo, cleared);
 
 function getPokemon() {
-  let mypoke = localStorage.getItem("pokemon");
+  let mypoke = localStorage.getItem("pokemon"+SesionPseudo);
   //console.log(typeof mypoke);
   let numbers = mypoke.match(/\d+/g);
   if(numbers) {
@@ -72,11 +72,11 @@ function AddPokemon(){
   imgcontainer.classList.add(ActuPoke);
   imgdeletebtn.classList.add(ActuPoke);
   imgcontainer.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ActuPoke}.png">`
-  mypoke = localStorage.getItem("pokemon");
+  mypoke = localStorage.getItem("pokemon"+SesionPseudo);
   mypoke = mypoke.split(',');
   mypoke.push(ActuPoke);
   mypoke = mypoke.join(',');
-  localStorage.setItem("pokemon", JSON.stringify(mypoke));
+  localStorage.setItem("pokemon"+SesionPseudo, JSON.stringify(mypoke));
 }
 
 function DeletePokemon(tae){
@@ -86,7 +86,7 @@ function DeletePokemon(tae){
   tae.classList.add('solobtn');
   tae.previousElementSibling.classList.remove(ActuPoke);
   tae.classList.remove(ActuPoke);
-  mypoke = localStorage.getItem("pokemon");
+  mypoke = localStorage.getItem("pokemon"+SesionPseudo);
   //console.log(mypoke);
   mypoke = mypoke.split(',');
   //console.log(mypoke);
@@ -94,13 +94,13 @@ function DeletePokemon(tae){
   //console.log(mypoke);
   mypoke = mypoke.join(',');
   //console.log(mypoke);
-  localStorage.setItem("pokemon", JSON.stringify(mypoke));
+  localStorage.setItem("pokemon"+SesionPseudo, JSON.stringify(mypoke));
 }
 
 const socket = io('http://localhost:3000');
 
 let showmessagedata = document.querySelector(".showmessagedata");
-console.log(showmessagedata);
+//console.log(showmessagedata);
 
 let btnsock = document.querySelector(".btnsock");
 btnsock.addEventListener("click", function() {
@@ -122,7 +122,7 @@ btnsock.addEventListener("click", function() {
 
 let history = localStorage.getItem("history");
   history = history.split(',');
-  console.log(history);
+  //console.log(history);
   for (let i = 0; i < history.length; i++) {
     let li = document.createElement("li");
     li.innerHTML = '<p>'+history[i]+'</p>' + '<br>';
@@ -133,8 +133,9 @@ let iolisten = document.querySelectorAll(".iolisten");
 
 iolisten.forEach(function(btn) {
 btn.addEventListener("click", function() {
-let pokemon = localStorage.getItem("pokemon");
-socket.emit("pokemonData", pokemon);
+  
+let pokemonpokemonotherdude = localStorage.getItem("pokemon"+SesionPseudo);
+socket.emit("pokemonData", pokemonpokemonotherdude);
 });
 
 });
@@ -142,22 +143,22 @@ socket.emit("pokemonData", pokemon);
 
 socket.on("Sendfront", (data) => {
 
-
   localStorage.setItem("history", data);
   let history = localStorage.getItem("history");
   history = history.split(',');
-  console.log(history);
+  //console.log(history);
   showmessagedata.innerHTML = '';
   for (let i = 0; i < history.length; i++) {
     let li = document.createElement("li");
     li.innerHTML = '<p>'+history[i]+'</p>' + '<br>';
     showmessagedata.appendChild(li)
   }
+  
 });
 
 socket.on("pokemonData", (data) => {
+  localStorage.setItem("pokemonpokemonotherdude", JSON.stringify(data));
 
-  localStorage.setItem("pokemon", JSON.stringify(data));
 });
 
 const main = document.querySelector("main");
