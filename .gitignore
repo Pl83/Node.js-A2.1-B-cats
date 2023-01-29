@@ -536,6 +536,8 @@ translations/*.qm
 # IDE settings
 .settings/
 
+<<<<<<< HEAD
+=======
 ### Images template
 
 
@@ -594,6 +596,7 @@ translations/*.qm
 # 3D Images
 *.3dm
 *.max
+>>>>>>> 4b0846a1f833795cc3966968f76f2446559caeaa
 
 ### Octave template
 # Windows default autosave extension

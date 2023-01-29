@@ -2,19 +2,20 @@
 const express = require('express');
 const cors= require('cors');
 const http = require('http');
-const socketio = require('socket.io');
+const socket = require('socket.io');
 
 const app = express();
 const port = 3000;
 
 const serverhttp = http.createServer(app);
-//const io = socketio(serverhttp);
-serverhttp.use(express.json());
-serverhttp.use(cors());
-serverhttp.use(http());
+app.use(express.json());
+app.use(cors());
 
-const io = socketio(serverhttp , {
+const io = socket(serverhttp , {
     cors: {
         origin: '*',
     }
+});
+serverhttp.listen(port, () => {
+    console.log(`On écoute sur le port ${port}`);
 });
