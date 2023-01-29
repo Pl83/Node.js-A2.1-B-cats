@@ -2,6 +2,7 @@ var ActuPoke = 0;
 if (localStorage.getItem("pokemon") == null) {
   localStorage.setItem("pokemon", []);
 }
+localStorage.setItem("pseudo", "zorgos");
 
 function getPokemon() {
   let mypoke = localStorage.getItem("pokemon");
@@ -78,7 +79,25 @@ function DeletePokemon(tae){
   localStorage.setItem("pokemon", JSON.stringify(mypoke));
 }
 
+const socket = io('http://localhost:3000');
 
+let showmessagedata = document.querySelector(".showmessagedata");
+console.log(showmessagedata);
+
+let btnsock = document.querySelector(".btnsock");
+btnsock.addEventListener("click", function() {
+  let contentmessage = document.querySelector("#contentmessage").value;
+  let pseudo = localStorage.getItem("pseudo");
+  socket.emit("message", pseudo + ' dit :' + contentmessage);
+});
+
+socket.on("Sendfront", (data) => {
+  console.log('rizzeds');
+  console.log(data);
+  let li = document.createElement("li");
+  li.innerHTML = data;
+  showmessagedata.appendChild(li)
+});
 
 
 
