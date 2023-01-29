@@ -30,18 +30,19 @@
         <input id="item-2" type="radio" name="item" class="sign-up"><label for="item-2" class="item">Sign Up</label>
         <div class="login-form">
             <div class="sign-in-htm">
-                <form method="get">
+                <form method="post">
                     <div class="group">
                         <input placeholder="Username" id="userl" type="text" class="input">
                     </div>
                     <div class="group">
                         <input placeholder="Password" id="pass" type="password" class="input">
                     </div>
+                </form>
 
                     <div class="group">
-                        <button class="button" onclick="login"></button>
+                        <button class="button" onclick="login()">Login</button>
                     </div>
-                </form>
+
                     <div class="hr"></div>
                     <div class="footer">
                         <a href="#forgot">Forgot Password?</a>
@@ -74,10 +75,11 @@
                         </datalist>
                     </div>
 
-                    <div class="group">
-                        <button class="button" onclick="register"></button>
-                    </div>
+
                 </form>
+                <div class="group">
+                    <button class="button" onclick="register()"></button>
+                </div>
                     <div class="hr"></div>
 
 
@@ -86,5 +88,6 @@
         </div>
     </div>
 
+<script src="loin.js"></script>
 </body>
 </html>

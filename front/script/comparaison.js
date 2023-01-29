@@ -1,4 +1,4 @@
-
+localStorage.setItem("Yourpokemon", 'qsdrsbry 4sbbrtsb,ft/85wdbt455fgfd628sder459tesdgf45')
 var MyPower = 0;
 var YourPower = 0;
 
@@ -36,7 +36,7 @@ function MyTeam() {
 
 MyTeam();
 
-localStorage.setItem("Yourpokemon", 'qsdrsbry 4sbbrtsb,ft/85wdbt455fgfd628sder459tesdgf45')
+
 
 function YourTeam() {
   let YourTeam = localStorage.getItem("Yourpokemon");

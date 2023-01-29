@@ -39,3 +39,40 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + localStorage.getItem("favpokemon"))
 
     })
 
+function btn(){
+    fetch('http://localhost:3000/logout', {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+
+    })
+    let logout = fetch('http://localhost:3000/logout')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            document.querySelector(".getTeam").innerHTML += data.msg;
+        });
+    localStorage.setItem("pseudo", "");
+    localStorage.setItem("favpokemon","" );
+    localStorage.setItem("pokemon", "");
+    document.location.href = "login.html";
+
+}
+
+
+function deletes(){
+    fetch('http://localhost:3000/delete', {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+
+    })
+
+}
+
+
+
+
+

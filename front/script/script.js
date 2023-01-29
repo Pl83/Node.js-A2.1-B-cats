@@ -1,3 +1,9 @@
+if(localStorage.getItem("pseudo") == null || localStorage.getItem("pseudo") == ""){
+document.location.href = "login.html";
+
+}
+
+
 var ActuPoke = 0;
 if (localStorage.getItem("pokemon") == null) {
   localStorage.setItem("pokemon", []);
@@ -86,15 +92,17 @@ console.log(showmessagedata);
 let btnsock = document.querySelector(".btnsock");
 btnsock.addEventListener("click", function() {
   let contentmessage = document.querySelector("#contentmessage").value;
-  let pseudo = localStorage.getItem("pseudo");
-  socket.emit("message", pseudo + ' dit :' + contentmessage);
+  let data = [localStorage.getItem("pseudo"), contentmessage]
+  socket.emit("message", data);
 });
+
 
 socket.on("Sendfront", (data) => {
   console.log('rizzeds');
   console.log(data);
+  let pseudo = localStorage.getItem("pseudo");
   let li = document.createElement("li");
-  li.innerHTML = '<p>'+data+'</p>';
+  li.innerHTML = '<h3>'+ data[0] +'</h3> <p>'+ data[1] +'</p>';
   showmessagedata.appendChild(li)
 });
 
