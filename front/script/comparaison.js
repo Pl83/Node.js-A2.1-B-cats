@@ -2,41 +2,46 @@
 var MyPower = 0;
 var YourPower = 0;
 
+localStorage.setItem("Yourpokemon", 'qsdrsbry 4sbbrtsb,ft/85wdbt455fgfd628sder459tesdgf45')
+
 function MyTeam() {
   let MyTeam = localStorage.getItem("pokemon");
   //console.log(MyTeam);
   let numbers = MyTeam.match(/\d+/g);
-  //console.log(numbers);
-  numbers.forEach(element => {
-    fetch('https://pokeapi.co/api/v2/pokemon/' + element)
-    .then(response => response.json())
-      .then(data => {
-        //console.log(data)
-        MyPower += data.stats[0].base_stat;
-        MyPower += data.stats[1].base_stat;
-        MyPower += data.stats[2].base_stat;
-        MyPower += data.stats[3].base_stat;
-        MyPower += data.stats[4].base_stat;
-        MyPower += data.stats[5].base_stat;
-        //console.log(MyPower);
-      })
-  });
-  if(numbers) {
-      let numbersString = numbers.join(',');
-      let numbersArray = numbersString.split(',');
-    for (let i = 0; i < numbersArray.length; i++) {
-      let imgcontainer = document.querySelector('.myteam');
-      imgcontainer.classList.remove('myteam');
-      imgcontainer.classList.add(numbersArray[i]);
-      imgcontainer.innerHTML = '';
-      imgcontainer.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${numbersArray[i]}.png">`;
+  console.log(numbers);
+  if (localStorage.getItem("pokemon") != null && numbers != null) {
+    numbers.forEach(element => {
+      fetch('https://pokeapi.co/api/v2/pokemon/' + element)
+      .then(response => response.json())
+        .then(data => {
+          //console.log(data)
+          MyPower += data.stats[0].base_stat;
+          MyPower += data.stats[1].base_stat;
+          MyPower += data.stats[2].base_stat;
+          MyPower += data.stats[3].base_stat;
+          MyPower += data.stats[4].base_stat;
+          MyPower += data.stats[5].base_stat;
+          //console.log(MyPower);
+        })
+    });
+    if(numbers) {
+        let numbersString = numbers.join(',');
+        let numbersArray = numbersString.split(',');
+      for (let i = 0; i < numbersArray.length; i++) {
+        let imgcontainer = document.querySelector('.myteam');
+        imgcontainer.classList.remove('myteam');
+        imgcontainer.classList.add(numbersArray[i]);
+        imgcontainer.innerHTML = '';
+        imgcontainer.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${numbersArray[i]}.png">`;
+      }
     }
+  } else {
+    MyPower = 0;
   }
 }
 
 MyTeam();
 
-localStorage.setItem("Yourpokemon", 'qsdrsbry 4sbbrtsb,ft/85wdbt455fgfd628sder459tesdgf45')
 
 function YourTeam() {
   let YourTeam = localStorage.getItem("Yourpokemon");
@@ -80,14 +85,21 @@ function compare() {
   let myteamStat = document.querySelector('#myteamStat');
   let yourteamStat = document.querySelector('#yourteamStat');
 
-  let promise1 = new Promise((resolve) => {
-    for (let i = 0; i < MyPower; i++) {
-      setTimeout(function() {
-        myteamStat.innerHTML = i+' cc';
-        if (i === MyPower - 1) resolve();
-      }, 3 * i);
+  
+    let promise1 = new Promise((resolve) => {
+      if (MyPower != 0){
+      for (let i = 0; i < MyPower; i++) {
+        setTimeout(function() {
+          myteamStat.innerHTML = i+' cc';
+          if (i === MyPower - 1) resolve();
+        }, 3 * i);
+      }
+    } else {
+      myteamStat.innerHTML = '0 cc';
+      resolve();
     }
-  });
+    });
+  
   
   let promise2 = new Promise((resolve) => {
     for (let i = 0; i < YourPower; i++) {
@@ -117,3 +129,25 @@ function compare() {
   
 }
 
+const socket = io('http://localhost:3000');
+socket.on("pokemonData", (data) => {
+  //console.log('prochaineconsole');
+  //console.log(data);
+  let pokemon = data.split(',');
+  //console.log(pokemon);
+});
+
+// Get the initial value of the "pokemon" key from localStorage
+const initialValue = localStorage.getItem("pokemon");
+
+// Function to check if the value of the "pokemon" key has changed
+function checkLocalStorage() {
+  const currentValue = localStorage.getItem("pokemon");
+  if (currentValue !== initialValue) {
+    initialValue = currentValue;
+    getPokemon();
+  }
+}
+
+// Check the value of the "pokemon" key in an interval
+setInterval(checkLocalStorage, 500); // check every 500 milliseconds
