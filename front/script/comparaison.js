@@ -1,15 +1,24 @@
-localStorage.setItem("Yourpokemon", 'qsdrsbry 4sbbrtsb,ft/85wdbt455fgfd628sder459tesdgf45')
+
 var MyPower = 0;
 var YourPower = 0;
+const SesionPseudo = localStorage.getItem("pseudo");
+localStorage.setItem("Yourpokemon", '');
 
-localStorage.setItem("Yourpokemon", 'qsdrsbry 4sbbrtsb,ft/85wdbt455fgfd628sder459tesdgf45')
+let randomNumbers = [];
+for (let i = 0; i < 6; i++) {
+  randomNumbers.push(Math.floor(Math.random() * 859) + 1);
+}
+
+localStorage.setItem("Yourpokemon", JSON.stringify(randomNumbers));
+
+
 
 function MyTeam() {
-  let MyTeam = localStorage.getItem("pokemon");
+  let MyTeam = localStorage.getItem("pokemon"+SesionPseudo);
   //console.log(MyTeam);
   let numbers = MyTeam.match(/\d+/g);
-  console.log(numbers);
-  if (localStorage.getItem("pokemon") != null && numbers != null) {
+  //console.log(numbers);
+  if (localStorage.getItem("pokemon"+SesionPseudo) != null && numbers != null) {
     numbers.forEach(element => {
       fetch('https://pokeapi.co/api/v2/pokemon/' + element)
       .then(response => response.json())
@@ -78,8 +87,8 @@ function YourTeam() {
 YourTeam();
 
 function compare() {
-  console.log(MyPower);
-  console.log(YourPower);
+  //console.log(MyPower);
+  //console.log(YourPower);
   let placeolder = document.querySelector('.placeolder');
   placeolder.style.display = 'flex';
   let myteamStat = document.querySelector('#myteamStat');
