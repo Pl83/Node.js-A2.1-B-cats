@@ -8,11 +8,12 @@ const client = new MongoClient(uri);
 
 async function run() {
     try {
-        const database = client.db('oui');
+        const database = client.db('user');
 
         // Query for a movie that has the title 'Back to the Future'
+        const col = db.collection("user");
 
-        const ok = await database.collection('salut').find({}).toArray();
+        const ok = await database.collection('profile').find({}).toArray();
 
         console.log(ok);
     } finally {
@@ -23,4 +24,3 @@ async function run() {
 
 }
 run().catch(console.dir);
-
