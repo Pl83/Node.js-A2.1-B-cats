@@ -22,7 +22,7 @@ function sendform(id) {
 
     else if (id == 3) {
         const prenom = document.getElementById("Nprenom").value;
-        localStorage.setItem("prenom", prenom);
+        localStorage.setItem("pseudo", prenom);
     }
 }
 
@@ -30,7 +30,7 @@ let Pprenom = document.getElementById("Pprenom");
 
 let Pimg = document.getElementById("Pimg");
 
-Pprenom.innerHTML = localStorage.getItem("prenom");
+Pprenom.innerHTML = localStorage.getItem("pseudo");
 
 fetch('https://pokeapi.co/api/v2/pokemon/' + localStorage.getItem("favpokemon"))
     .then(response => response.json())
