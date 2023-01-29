@@ -72,8 +72,9 @@ app.delete('/delete/', (req, res) => {
 
     client.connect(err => {
         const collection = client.db("user").collection("profile");
-        const connectedUserId = req.session.userId;
-        collection.deleteOne({ _id: connectedUserId }, function(err, res) {
+        const connectedUserId = req.body.user;
+        console.log(connectedUserId);
+        collection.deleteOne({ username: connectedUserId }, function(err, res) {
             console.log("Connected user's document deleted");
             client.close();
         });
