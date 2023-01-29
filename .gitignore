@@ -536,14 +536,10 @@ translations/*.qm
 # IDE settings
 .settings/
 
+<<<<<<< HEAD
+=======
 ### Images template
-# JPEG
-*.jpg
-*.jpeg
-*.jpe
-*.jif
-*.jfif
-*.jfi
+
 
 # JPEG 2000
 *.jp2
@@ -568,10 +564,10 @@ translations/*.qm
 *.webp
 
 # Portable Network Graphics
-*.png
+
 
 # Animated Portable Network Graphics
-*.apng
+
 
 # Multiple-image Network Graphics
 *.mng
@@ -581,7 +577,7 @@ translations/*.qm
 *.tif
 
 # Scalable Vector Graphics
-*.svg
+
 *.svgz
 
 # Portable Document Format
@@ -600,6 +596,7 @@ translations/*.qm
 # 3D Images
 *.3dm
 *.max
+>>>>>>> 4b0846a1f833795cc3966968f76f2446559caeaa
 
 ### Octave template
 # Windows default autosave extension
@@ -657,7 +654,7 @@ octave-workspace
 # *.wmf
 # *.emf
 # *.pdf
-# *.png
+
 # *.tif
 
 ### AL template
@@ -1239,7 +1236,7 @@ FodyWeavers.xsd
 rerun/
 reports/
 screenshots/
-screenshot*.png
+
 test-servers/
 
 # bundler
@@ -1541,8 +1538,6 @@ tmtags
 *.psm
 *.bak
 *.cmp
-*.jpg
-*.html
 *.bsf
 
 # ignore simulation output of ModelSim
