@@ -8,6 +8,13 @@ const httpServer = http.createServer(app);
 
 const port = 3000;
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test:1234@cluster0.dya1mju.mongodb.net/?retryWrites=true&w=majority\n";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+
+
+
 const io = new Server(httpServer, {
     cors : {
         origin : '*'
@@ -41,9 +48,23 @@ app.post('/login/', (req, res) => {
     res.json({user: req.body.user , pokes: req.body.pokfav});
 });
 app.post('/register/', (req, res) => {
-    console.log(req.body.pokfav);
-    console.log(req.body.user)
-    console.log(req.body.password)
+
+
+
+    const username = req.body.user;
+    const pokefa = req.body.pokefavs;
+    const password = req.body.passwords;
+    console.log(pokefa);
+
+
+    client.connect(err => {
+        const collection = client.db("user").collection("profile");
+        collection.insertOne({ username: username, pokefav: pokefa, password: password }, function(err, res) {
+            console.log("User created");
+            client.close();
+        });
+    });
+
 
 });
 
@@ -53,9 +74,20 @@ app.get('/logout/', (req, res) => {
 });
 
 app.delete('/delete/', (req, res) => {
-    console.log("suppresion de compte");
+
+
+    client.connect(err => {
+        const collection = client.db("user").collection("profile");
+        const connectedUserId = req.body.user;
+        console.log(connectedUserId);
+        collection.deleteOne({ username: connectedUserId }, function(err, res) {
+            console.log("Connected user's document deleted");
+            client.close();
+        });
+    });
 
 });
+
 httpServer.listen(port, () => {
   console.log(`On écoute le port n°${port}`)
 });

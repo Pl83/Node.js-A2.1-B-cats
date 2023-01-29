@@ -39,6 +39,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + localStorage.getItem("favpokemon"))
 
     })
 
+
 function btn(){
     fetch('http://localhost:3000/logout', {
         method: "GET",
@@ -67,12 +68,12 @@ function deletes(){
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
         },
+        body: JSON.stringify({user: localStorage.getItem("pseudo")})
 
     })
+    localStorage.setItem("pseudo", "");
+    localStorage.setItem("favpokemon","" );
+    localStorage.setItem("pokemon", "");
+    document.location.href = "login.html";
 
 }
-
-
-
-
-

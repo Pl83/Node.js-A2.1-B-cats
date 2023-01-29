@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/login.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -50,6 +50,7 @@
                         <a href="#forgot">Forgot Password?</a>
                     </div>
 
+
             </div>
             <div class="sign-up-htm">
                 <form method="get">
@@ -61,18 +62,18 @@
                         <input placeholder="Password" id="passe" type="password" class="input">
                     </div>
                     <div class="group">
-                        <input list="subject" placeholder="Your favorit pokemon" id="favor" type="text" class="input">
+                        <input list="subject" placeholder="pokefav" id="favor" type="text" class="input">
                         <datalist id="subject">
                             <script>
                                 fetch('https://pokeapi.co/api/v2/pokemon/?limit=1008')
-                                .then(response => response.json())
+                                    .then(response => response.json())
                                     .then(data => {
-                                    //console.log(data)
-                                    data.results.forEach(pokemon => {
-                                        //console.log(pokemon.name)
-                                        document.getElementById('subject').innerHTML += `<option value="${pokemon.name}">`
+                                        //console.log(data)
+                                        data.results.forEach(pokemon => {
+                                            //console.log(pokemon.name)
+                                            document.getElementById('subject').innerHTML += `<option value="${pokemon.name}">`
+                                        })
                                     })
-                                })
                             </script>
                         </datalist>
                     </div>
@@ -80,14 +81,17 @@
                 </form>
                 <div class="group">
                     <button class="button" onclick="register()"></button>
-                </div>
-                    <div class="hr"></div>
-
 
                 </div>
+                <div class="hr"></div>
+
+
             </div>
         </div>
     </div>
+
+</div>
+
 
 <script src="script/login.js"></script>
 
