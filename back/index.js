@@ -70,7 +70,7 @@ app.delete('/delete/', (req, res) => {
     console.log("suppresion de compte");
 
     client.connect(err => {
-        const collection = client.db("test").collection("devices");
+        const collection = client.db("user").collection("profile");
         const connectedUserId = req.session.userId;
         collection.deleteOne({ _id: connectedUserId }, function(err, res) {
             console.log("Connected user's document deleted");
