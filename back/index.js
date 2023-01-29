@@ -8,6 +8,13 @@ const httpServer = http.createServer(app);
 
 const port = 3000;
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test:1234@cluster0.dya1mju.mongodb.net/?retryWrites=true&w=majority\n";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+
+
+
 const io = new Server(httpServer, {
     cors : {
         origin : '*'
@@ -30,6 +37,39 @@ io.on("connection", (socket) => {
   })
 })
 
+
+app.post('/login/', (req, res) => {
+    console.log(req.body);
+    console.log(req.body.user)
+    console.log(req.body.password)
+    res.json({user: req.body.user , pokes: req.body.pokfav});
+});
+app.post('/register/', (req, res) => {
+
+    const username = req.body.username;
+    const pokefav = req.body.pokefav;
+    const password = req.body.password;
+
+
+    client.connect(err => {
+        const collection = client.db("user").collection("profile");
+        collection.insertOne({ username: username, pokefav: pokefav, password: password }, function(err, res) {
+            console.log("User created");
+            client.close();
+        });
+    });
+
+});
+
+app.get('/logout/', (req, res) => {
+    console.log("vous etes deconnecté");
+    res.json({msg: "suppresion de compte"});
+});
+
+app.delete('/delete/', (req, res) => {
+    console.log("suppresion de compte");
+
+});
 httpServer.listen(port, () => {
   console.log(`On écoute le port n°${port}`)
 });
