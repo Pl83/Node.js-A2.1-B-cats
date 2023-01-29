@@ -83,39 +83,3 @@
     }
   }
 } 
-
-#BatleArea{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10vh;
-  img{
-    width: 25vh;
-    height: auto;
-  }
-  #figth{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10vh;
-    .placeolder{
-      display: none;
-      flex-direction: row;
-    }
-    #fitghbtn:hover{
-      cursor: pointer;
-    }
-  }
-  .myteams{
-    overflow: scroll;
-    height: 80vh;
-  }
-  .yourteams{
-    overflow: scroll;
-    height: 80vh;
-  }
-  // .ninja{
-  //   display: none;
-  // }
-}
