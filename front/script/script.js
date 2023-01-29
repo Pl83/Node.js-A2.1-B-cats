@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
+const cleared = localStorage.getItem("pokemon").replace(/\\/g, "");
+localStorage.setItem("pokemon", cleared);
 
 function getPokemon() {
   let mypoke = localStorage.getItem("pokemon");
@@ -131,8 +131,7 @@ socket.emit("pokemonData", pokemon);
 });
 
 socket.on("Sendfront", (data) => {
-  //console.log('rizzeds');
-  //console.log(data);
+
   localStorage.setItem("history", data);
   let history = localStorage.getItem("history");
   history = history.split(',');
@@ -143,17 +142,12 @@ socket.on("Sendfront", (data) => {
     li.innerHTML = '<p>'+history[i]+'</p>' + '<br>';
     showmessagedata.appendChild(li)
   }
-  // let li = document.createElement("li");
-  // li.innerHTML = '<p>'+data+'</p>';
-  // showmessagedata.appendChild(li)
+
 });
 
 socket.on("pokemonData", (data) => {
-  //console.log('prochaineconsole');
-  //console.log(data);
+
   localStorage.setItem("pokemon", JSON.stringify(data));
-  //let pokemon = data.split(',');
-  //console.log(pokemon);
 });
 
 const main = document.querySelector("main");
@@ -166,12 +160,12 @@ while (y < main.clientHeight) {
   const div = document.createElement("div");
   div.style.width = "50px";
   div.style.height = "50px";
-  //div.style.backgroundColor = "red";
+
   div.style.position = "absolute";
   div.style.left = `${x}px`;
   div.style.top = `${y}px`;
   div.classList.add("boxpoke");
-  //div.classList.add("boxslot");
+
   div.classList.add("27");
   div.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${nb}.png">`;
   boxarea.appendChild(div);
