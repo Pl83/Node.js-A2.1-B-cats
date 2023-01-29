@@ -99,6 +99,27 @@ socket.on("Sendfront", (data) => {
   showmessagedata.appendChild(li)
 });
 
+const main = document.querySelector("main");
+const boxarea = document.querySelector(".boxarea");
+let x = 0;
+let y = 0;
+
+while (y < main.clientHeight) {
+  const div = document.createElement("div");
+  div.style.width = "50px";
+  div.style.height = "50px";
+  div.style.backgroundColor = "red";
+  div.style.position = "absolute";
+  div.style.left = `${x}px`;
+  div.style.top = `${y}px`;
+  boxarea.appendChild(div);
+
+  x += 65; // 50px (width) + 15px (gap)
+  if (x + 50 > main.clientWidth) {
+    x = 0;
+    y += 65;
+  }
+}
 
 
 //NODE
