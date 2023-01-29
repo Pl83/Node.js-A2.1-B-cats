@@ -6,11 +6,14 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #f2f2f2;
+  background-image: url("img/default_2019-11-20_21e7b647-7774-4b5e-ab44-f76606656036.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
   height: 10vh;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,7 +43,6 @@ header nav ul li a {
 
 #BatleArea {
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
   gap: 75px;
@@ -66,15 +68,53 @@ header nav ul li a {
 #BatleArea #figth #fitghbtn:hover {
   cursor: pointer;
 }
+#BatleArea .buttond {
+  border: red solid 2px;
+  background: white;
+  padding: 2px 7px;
+  border-radius: 15px;
+}
 #BatleArea .myteams {
-  overflow-y: scroll;
-  height: 80vh;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 135px;
+  border-radius: 15px;
+  border: red 2px solid;
+  background: white;
+}
+#BatleArea .myteams img {
+  width: 120px;
+  height: 120px;
 }
 #BatleArea .yourteams {
-  overflow-y: scroll;
-  height: 80vh;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 130px;
+  border-radius: 15px;
+  border: red 2px solid;
+  background: white;
+}
+#BatleArea .yourteams img {
+  width: 120px;
+  height: 120px;
+}
+#BatleArea #myteam {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+#BatleArea #yourteam {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=compar.css.map */

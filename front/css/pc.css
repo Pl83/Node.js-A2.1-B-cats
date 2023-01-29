@@ -13,6 +13,11 @@
   border-radius: 100px;
 }
 
+*:after,:before{
+  padding: 0;
+  margin: 0;
+}
+
 
 
 body {
@@ -152,9 +157,10 @@ header nav ul li a {
 }
 
 .styling{
+  display: flex;
   width: 50%;
   height: 70%;
-
+  align-items: center;
 
 }
 
